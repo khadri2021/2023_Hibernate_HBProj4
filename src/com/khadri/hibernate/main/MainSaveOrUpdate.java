@@ -2,7 +2,6 @@ package com.khadri.hibernate.main;
 
 import java.util.Scanner;
 
-import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
