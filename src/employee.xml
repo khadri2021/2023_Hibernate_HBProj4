@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="com.khadri.hibernate.entity.Employee">
+		<id name="empId" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="empName" type="string" />
+		<property name="salary" type="double" />
+	</class>
+</hibernate-mapping>
