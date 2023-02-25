@@ -1,8 +1,5 @@
 package com.khadri.hibernate.main;
 
-import java.util.Scanner;
-
-import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,9 +7,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.khadri.hibernate.entity.Employee;
 
-public class MainSaveOrUpdate {
-
-	private static Scanner sc = new Scanner(System.in);
+public class MainMerge {
 
 	public static void main(String[] args) {
 
@@ -25,16 +20,18 @@ public class MainSaveOrUpdate {
 
 		Transaction txn = session.beginTransaction();
 
-		System.out.println("Enter Employee Id:");
-		Integer empId = sc.nextInt();
-
 		Employee e1 = new Employee();
-		e1.setEmpName("THORSTEN");
-		e1.setEmpId(empId);
-		e1.setSalary(200000.87);
+		e1.setEmpName("RAJ");
+		e1.setSalary(100000.87);
 
-		session.saveOrUpdate(e1);
+		session.save(e1);
 		session.flush();
+
+		session.evict(e1);
+
+		e1.setSalary(300000.87);
+		session.merge(e1);
+
 		txn.commit();
 
 	}

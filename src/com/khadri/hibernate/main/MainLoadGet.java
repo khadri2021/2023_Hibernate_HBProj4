@@ -2,15 +2,13 @@ package com.khadri.hibernate.main;
 
 import java.util.Scanner;
 
-import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import com.khadri.hibernate.entity.Employee;
 
-public class MainSaveOrUpdate {
+public class MainLoadGet {
 
 	private static Scanner sc = new Scanner(System.in);
 
@@ -23,19 +21,16 @@ public class MainSaveOrUpdate {
 
 		Session session = sessionFactory.openSession();
 
-		Transaction txn = session.beginTransaction();
+		System.out.println("Please enter emp id to select the record: ");
+		int empId = sc.nextInt();
 
-		System.out.println("Enter Employee Id:");
-		Integer empId = sc.nextInt();
+		Employee emp = session.get(Employee.class, empId);
+		//System.out.println(emp);
 
-		Employee e1 = new Employee();
-		e1.setEmpName("THORSTEN");
-		e1.setEmpId(empId);
-		e1.setSalary(200000.87);
-
-		session.saveOrUpdate(e1);
-		session.flush();
-		txn.commit();
+		System.out.println("EMPLOYEE ID: "+emp.getEmpId());
+		System.out.println("EMPLOYEE NAME: "+emp.getEmpName());
+		System.out.println("EMPLOYEE SALARY: "+emp.getSalary());
+		 
 
 	}
 }

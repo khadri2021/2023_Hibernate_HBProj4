@@ -5,6 +5,7 @@ public class Employee {
 	private Integer empId;
 	private String empName;
 	private Double salary;
+	
 	public Integer getEmpId() {
 		return empId;
 	}

@@ -1,5 +1,6 @@
 package com.khadri.hibernate.main;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import org.hibernate.Session;
@@ -41,7 +42,7 @@ public class MainSavePersist {
 	    session.evict(e1);
 	    
 	    System.out.println("moving detached state to persistance state as new object");
-	    session.save(e1);
+	   session.save(e1);
 		 
 		txn.commit();
 
