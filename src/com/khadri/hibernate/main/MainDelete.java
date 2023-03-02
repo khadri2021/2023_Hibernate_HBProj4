@@ -12,9 +12,9 @@ import com.khadri.hibernate.entity.Employee;
 public class MainDelete {
 
 	static Scanner scanner = new Scanner(System.in);
-
+	
 	public static void main(String[] args) {
-
+		
 		Configuration cfg = new Configuration();
 		cfg.configure();
 
